@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWANA Advocates Jeopardy", "AWANA Advocates Jeopardy\AWANA Advocates Jeopardy.csproj", "{D5CB26B3-E6D1-4D8F-A53A-0F18ABBF198A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5CB26B3-E6D1-4D8F-A53A-0F18ABBF198A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5CB26B3-E6D1-4D8F-A53A-0F18ABBF198A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5CB26B3-E6D1-4D8F-A53A-0F18ABBF198A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CB26B3-E6D1-4D8F-A53A-0F18ABBF198A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29EF566B-7585-4A12-A23E-4DB122175A19}
+	EndGlobalSection
+EndGlobal
