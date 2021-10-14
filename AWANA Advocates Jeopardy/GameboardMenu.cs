@@ -12,32 +12,7 @@ namespace AWANA_Advocates_Jeopardy
     {
         private string lessonToUse;
         private Dictionary<string, string> questions;
-        public GameboardMenu(string lessonToUse)
-        {
-            this.lessonToUse = lessonToUse;
-            InitializeComponent();
-        }
-
-        private void GameboardMenu_Load(object sender, EventArgs e)
-        {
-            DataAccess da = new DataAccess();
-            List<LessonPlan> lessonPlans =  da.GetLessonPlan(lessonToUse);
-            questions = Helper.ConvertListToMap(lessonPlans);
-            lessonNameTitle.Text = lessonToUse;
-            List<Player> players = new List<Player>();
-            players.Add(new Player("sam"));
-
-            playersLb.DataSource = players;
-            playersLb.DisplayMember = "playerName";
-        }
-        private void PerformClick(Button button)
-        {
-            button.Hide();
-            this.Hide();
-            QuestionForm question = new QuestionForm(questions[button.Name], Int32.Parse(button.Text));
-            question.ShowDialog();
-            this.Show();
-        }
+        List<Player> players = new List<Player>();
         private void A100_Click(object sender, EventArgs e) { PerformClick(A100); }
         private void A200_Click(object sender, EventArgs e) { PerformClick(A200); }
         private void A300_Click(object sender, EventArgs e) { PerformClick(A300); }
@@ -63,5 +38,49 @@ namespace AWANA_Advocates_Jeopardy
         private void E300_Click(object sender, EventArgs e) { PerformClick(E300); }
         private void E400_Click(object sender, EventArgs e) { PerformClick(E400); }
         private void E500_Click(object sender, EventArgs e) { PerformClick(E500); }
+        public GameboardMenu(string lessonToUse)
+        {
+            this.lessonToUse = lessonToUse;
+            InitializeComponent();
+        }
+
+        private void GameboardMenu_Load(object sender, EventArgs e)
+        {
+            DataAccess da = new DataAccess();
+            List<LessonPlan> lessonPlans = da.GetLessonPlan(lessonToUse);
+            questions = Helper.ConvertListToMap(lessonPlans);
+            lessonNameTitle.Text = lessonToUse;
+        }
+        private void PerformClick(Button button)
+        {
+            button.Hide();
+            this.Hide();
+            QuestionForm question = new QuestionForm(questions[button.Name], Int32.Parse(button.Text),ref players);
+            question.ShowDialog();
+            this.Show();
+            UpdateListBox();
+
+        }
+        private void addPlayerBtn_Click(object sender, EventArgs e)
+        {
+            AddPlayerForm addForm = new AddPlayerForm(ref players);
+            addForm.ShowDialog();
+
+            int listBoxHeight = 29 + ((players.Count-1)*25);
+            playersLb.Size = new System.Drawing.Size(192, listBoxHeight);
+
+            UpdateListBox();
+        }
+        private void UpdateListBox()
+        {
+            playersLb.DataSource = null;
+            playersLb.DataSource = players;
+            playersLb.DisplayMember = "FullInfo";
+            playersLb.Refresh();
+        }
+        private void quitBtn_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

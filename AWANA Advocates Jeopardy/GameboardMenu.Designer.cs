@@ -61,6 +61,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.playersLb = new System.Windows.Forms.ListBox();
+            this.addPlayerBtn = new AWANA_Advocates_Jeopardy.MenuButtons();
+            this.quitBtn = new AWANA_Advocates_Jeopardy.MenuButtons();
             this.SuspendLayout();
             // 
             // lessonNameTitle
@@ -566,7 +568,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 96);
+            this.label2.Location = new System.Drawing.Point(35, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 38);
             this.label2.TabIndex = 2;
@@ -577,7 +579,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(316, 96);
+            this.label3.Location = new System.Drawing.Point(321, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 38);
             this.label3.TabIndex = 2;
@@ -610,10 +612,48 @@
             this.playersLb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.playersLb.FormattingEnabled = true;
             this.playersLb.ItemHeight = 25;
-            this.playersLb.Location = new System.Drawing.Point(778, 1);
+            this.playersLb.Location = new System.Drawing.Point(778, 0);
             this.playersLb.Name = "playersLb";
-            this.playersLb.Size = new System.Drawing.Size(180, 179);
+            this.playersLb.Size = new System.Drawing.Size(192, 29);
             this.playersLb.TabIndex = 3;
+            // 
+            // addPlayerBtn
+            // 
+            this.addPlayerBtn.BackColor = System.Drawing.Color.Blue;
+            this.addPlayerBtn.BackgroundColor = System.Drawing.Color.Blue;
+            this.addPlayerBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.addPlayerBtn.BorderRadius = 18;
+            this.addPlayerBtn.BorderSize = 0;
+            this.addPlayerBtn.FlatAppearance.BorderSize = 0;
+            this.addPlayerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPlayerBtn.ForeColor = System.Drawing.Color.White;
+            this.addPlayerBtn.Location = new System.Drawing.Point(809, 396);
+            this.addPlayerBtn.Name = "addPlayerBtn";
+            this.addPlayerBtn.Size = new System.Drawing.Size(149, 35);
+            this.addPlayerBtn.TabIndex = 4;
+            this.addPlayerBtn.Text = "Add Player";
+            this.addPlayerBtn.TextColor = System.Drawing.Color.White;
+            this.addPlayerBtn.UseVisualStyleBackColor = false;
+            this.addPlayerBtn.Click += new System.EventHandler(this.addPlayerBtn_Click);
+            // 
+            // quitBtn
+            // 
+            this.quitBtn.BackColor = System.Drawing.Color.Red;
+            this.quitBtn.BackgroundColor = System.Drawing.Color.Red;
+            this.quitBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.quitBtn.BorderRadius = 18;
+            this.quitBtn.BorderSize = 0;
+            this.quitBtn.FlatAppearance.BorderSize = 0;
+            this.quitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quitBtn.ForeColor = System.Drawing.Color.White;
+            this.quitBtn.Location = new System.Drawing.Point(809, 437);
+            this.quitBtn.Name = "quitBtn";
+            this.quitBtn.Size = new System.Drawing.Size(149, 35);
+            this.quitBtn.TabIndex = 4;
+            this.quitBtn.Text = "Quit";
+            this.quitBtn.TextColor = System.Drawing.Color.White;
+            this.quitBtn.UseVisualStyleBackColor = false;
+            this.quitBtn.Click += new System.EventHandler(this.quitBtn_Click);
             // 
             // GameboardMenu
             // 
@@ -621,7 +661,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(970, 518);
+            this.ClientSize = new System.Drawing.Size(970, 488);
+            this.Controls.Add(this.quitBtn);
+            this.Controls.Add(this.addPlayerBtn);
             this.Controls.Add(this.playersLb);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -697,5 +739,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox playersLb;
+        private MenuButtons addPlayerBtn;
+        private MenuButtons quitBtn;
     }
 }

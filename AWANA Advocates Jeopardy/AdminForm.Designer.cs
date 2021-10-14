@@ -36,7 +36,7 @@
             // 
             // adminDGV
             // 
-            this.adminDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.adminDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.adminDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adminDGV.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.adminDGV.Location = new System.Drawing.Point(0, 205);

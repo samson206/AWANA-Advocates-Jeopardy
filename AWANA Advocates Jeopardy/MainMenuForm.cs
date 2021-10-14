@@ -26,9 +26,7 @@ namespace AWANA_Advocates_Jeopardy
         
         private void playBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
             playMenu.ShowDialog();
-            this.Show();
         }
 
         private void menuButtons1_Click(object sender, EventArgs e)
