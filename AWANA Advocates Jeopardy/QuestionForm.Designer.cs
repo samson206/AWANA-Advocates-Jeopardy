@@ -39,6 +39,7 @@
             this.player7Btn = new AWANA_Advocates_Jeopardy.MenuButtons();
             this.player6Btn = new AWANA_Advocates_Jeopardy.MenuButtons();
             this.player5Btn = new AWANA_Advocates_Jeopardy.MenuButtons();
+            this.answerBtn = new AWANA_Advocates_Jeopardy.MenuButtons();
             this.SuspendLayout();
             // 
             // pointLbl
@@ -48,7 +49,7 @@
             this.pointLbl.Font = new System.Drawing.Font("Malgun Gothic", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pointLbl.Location = new System.Drawing.Point(0, 0);
             this.pointLbl.Name = "pointLbl";
-            this.pointLbl.Size = new System.Drawing.Size(800, 69);
+            this.pointLbl.Size = new System.Drawing.Size(1281, 69);
             this.pointLbl.TabIndex = 0;
             this.pointLbl.Text = "Points";
             this.pointLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -56,10 +57,10 @@
             // questionLbl
             // 
             this.questionLbl.BackColor = System.Drawing.Color.Transparent;
-            this.questionLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.questionLbl.Location = new System.Drawing.Point(36, 80);
+            this.questionLbl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.questionLbl.Location = new System.Drawing.Point(12, 80);
             this.questionLbl.Name = "questionLbl";
-            this.questionLbl.Size = new System.Drawing.Size(735, 187);
+            this.questionLbl.Size = new System.Drawing.Size(1257, 500);
             this.questionLbl.TabIndex = 1;
             this.questionLbl.Text = "Question";
             this.questionLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,7 +75,7 @@
             this.player1Btn.FlatAppearance.BorderSize = 0;
             this.player1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player1Btn.ForeColor = System.Drawing.Color.Black;
-            this.player1Btn.Location = new System.Drawing.Point(36, 311);
+            this.player1Btn.Location = new System.Drawing.Point(322, 583);
             this.player1Btn.Name = "player1Btn";
             this.player1Btn.Size = new System.Drawing.Size(157, 39);
             this.player1Btn.TabIndex = 2;
@@ -94,7 +95,7 @@
             this.player2Btn.FlatAppearance.BorderSize = 0;
             this.player2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player2Btn.ForeColor = System.Drawing.Color.Black;
-            this.player2Btn.Location = new System.Drawing.Point(220, 311);
+            this.player2Btn.Location = new System.Drawing.Point(506, 583);
             this.player2Btn.Name = "player2Btn";
             this.player2Btn.Size = new System.Drawing.Size(157, 39);
             this.player2Btn.TabIndex = 2;
@@ -114,7 +115,7 @@
             this.player3Btn.FlatAppearance.BorderSize = 0;
             this.player3Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player3Btn.ForeColor = System.Drawing.Color.Black;
-            this.player3Btn.Location = new System.Drawing.Point(408, 311);
+            this.player3Btn.Location = new System.Drawing.Point(694, 583);
             this.player3Btn.Name = "player3Btn";
             this.player3Btn.Size = new System.Drawing.Size(157, 39);
             this.player3Btn.TabIndex = 2;
@@ -134,7 +135,7 @@
             this.player4Btn.FlatAppearance.BorderSize = 0;
             this.player4Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player4Btn.ForeColor = System.Drawing.Color.Black;
-            this.player4Btn.Location = new System.Drawing.Point(590, 311);
+            this.player4Btn.Location = new System.Drawing.Point(876, 583);
             this.player4Btn.Name = "player4Btn";
             this.player4Btn.Size = new System.Drawing.Size(157, 39);
             this.player4Btn.TabIndex = 2;
@@ -154,7 +155,7 @@
             this.player8Btn.FlatAppearance.BorderSize = 0;
             this.player8Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player8Btn.ForeColor = System.Drawing.Color.Black;
-            this.player8Btn.Location = new System.Drawing.Point(590, 372);
+            this.player8Btn.Location = new System.Drawing.Point(876, 644);
             this.player8Btn.Name = "player8Btn";
             this.player8Btn.Size = new System.Drawing.Size(157, 39);
             this.player8Btn.TabIndex = 2;
@@ -174,7 +175,7 @@
             this.player7Btn.FlatAppearance.BorderSize = 0;
             this.player7Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player7Btn.ForeColor = System.Drawing.Color.Black;
-            this.player7Btn.Location = new System.Drawing.Point(408, 372);
+            this.player7Btn.Location = new System.Drawing.Point(694, 644);
             this.player7Btn.Name = "player7Btn";
             this.player7Btn.Size = new System.Drawing.Size(157, 39);
             this.player7Btn.TabIndex = 2;
@@ -194,7 +195,7 @@
             this.player6Btn.FlatAppearance.BorderSize = 0;
             this.player6Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player6Btn.ForeColor = System.Drawing.Color.Black;
-            this.player6Btn.Location = new System.Drawing.Point(220, 372);
+            this.player6Btn.Location = new System.Drawing.Point(506, 644);
             this.player6Btn.Name = "player6Btn";
             this.player6Btn.Size = new System.Drawing.Size(157, 39);
             this.player6Btn.TabIndex = 2;
@@ -214,7 +215,7 @@
             this.player5Btn.FlatAppearance.BorderSize = 0;
             this.player5Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.player5Btn.ForeColor = System.Drawing.Color.Black;
-            this.player5Btn.Location = new System.Drawing.Point(36, 372);
+            this.player5Btn.Location = new System.Drawing.Point(322, 644);
             this.player5Btn.Name = "player5Btn";
             this.player5Btn.Size = new System.Drawing.Size(157, 39);
             this.player5Btn.TabIndex = 2;
@@ -224,12 +225,33 @@
             this.player5Btn.Visible = false;
             this.player5Btn.Click += new System.EventHandler(this.player5Btn_Click);
             // 
+            // answerBtn
+            // 
+            this.answerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.answerBtn.BackColor = System.Drawing.Color.Yellow;
+            this.answerBtn.BackgroundColor = System.Drawing.Color.Yellow;
+            this.answerBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.answerBtn.BorderRadius = 10;
+            this.answerBtn.BorderSize = 0;
+            this.answerBtn.FlatAppearance.BorderSize = 0;
+            this.answerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.answerBtn.ForeColor = System.Drawing.Color.Black;
+            this.answerBtn.Location = new System.Drawing.Point(1147, 12);
+            this.answerBtn.Name = "answerBtn";
+            this.answerBtn.Size = new System.Drawing.Size(122, 35);
+            this.answerBtn.TabIndex = 3;
+            this.answerBtn.Text = "Answer";
+            this.answerBtn.TextColor = System.Drawing.Color.Black;
+            this.answerBtn.UseVisualStyleBackColor = false;
+            this.answerBtn.Click += new System.EventHandler(this.answerBtn_Click);
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1281, 708);
+            this.Controls.Add(this.answerBtn);
             this.Controls.Add(this.player5Btn);
             this.Controls.Add(this.player6Btn);
             this.Controls.Add(this.player7Btn);
@@ -259,5 +281,6 @@
         private MenuButtons player7Btn;
         private MenuButtons player6Btn;
         private MenuButtons player5Btn;
+        private MenuButtons answerBtn;
     }
 }

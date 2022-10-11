@@ -11,8 +11,12 @@ namespace AWANA_Advocates_Jeopardy
     public partial class GameboardMenu : Form
     {
         private string lessonToUse;
-        private Dictionary<string, string> questions;
+        private Dictionary<string, string[]> questions;
         List<Player> players = new List<Player>();
+        private bool teamMode;
+        int firstPrize = 3000;
+        int secondPrize = 4000;
+        int thirdPrize = 5000;
         private void A100_Click(object sender, EventArgs e) { PerformClick(A100); }
         private void A200_Click(object sender, EventArgs e) { PerformClick(A200); }
         private void A300_Click(object sender, EventArgs e) { PerformClick(A300); }
@@ -38,10 +42,11 @@ namespace AWANA_Advocates_Jeopardy
         private void E300_Click(object sender, EventArgs e) { PerformClick(E300); }
         private void E400_Click(object sender, EventArgs e) { PerformClick(E400); }
         private void E500_Click(object sender, EventArgs e) { PerformClick(E500); }
-        public GameboardMenu(string lessonToUse)
+        public GameboardMenu(string lessonToUse, bool mode)
         {
             this.lessonToUse = lessonToUse;
             InitializeComponent();
+            this.teamMode = mode;
         }
 
         private void GameboardMenu_Load(object sender, EventArgs e)
@@ -50,24 +55,53 @@ namespace AWANA_Advocates_Jeopardy
             List<LessonPlan> lessonPlans = da.GetLessonPlan(lessonToUse);
             questions = Helper.ConvertListToMap(lessonPlans);
             lessonNameTitle.Text = lessonToUse;
+            if (teamMode == true)
+            {
+                addPlayerBtn.Visible = false;
+                progressGrpBox.Visible = true;
+
+                players.Add(new Player("Team"));
+            }
+            UpdateListBox();
         }
         private void PerformClick(Button button)
         {
-            button.Hide();
-            this.Hide();
-            QuestionForm question = new QuestionForm(questions[button.Name], Int32.Parse(button.Text),ref players);
-            question.ShowDialog();
-            this.Show();
-            UpdateListBox();
+            if (players.Count > 0 && questions.Count > 0)
+            {
+                button.Hide();
+                this.Hide();
+                QuestionForm question = new QuestionForm(questions[button.Name][0], questions[button.Name][1], Int32.Parse(button.Text), ref players);
+                question.ShowDialog();
+                this.Show();
+                UpdateListBox();
+                if (players[0].playerPoints <= firstPrize) 
+                { 
+                    candyBar1.Value = players[0].playerPoints; 
+                }
+                else if (players[0].playerPoints >= firstPrize & players[0].playerPoints <= secondPrize) 
+                {
+                    candyBar1.Value = firstPrize;
+                    candyBar2.Value = players[0].playerPoints; 
+                }
+                else if (players[0].playerPoints >= secondPrize & players[0].playerPoints <= thirdPrize) 
+                {
+                    candyBar2.Value = secondPrize;
+                    candyBar3.Value = players[0].playerPoints; 
+                }
+                else if (players[0].playerPoints >= thirdPrize)
+                {
+                    candyBar3.Value = thirdPrize;
+                }
 
+            }
         }
         private void addPlayerBtn_Click(object sender, EventArgs e)
         {
             AddPlayerForm addForm = new AddPlayerForm(ref players);
             addForm.ShowDialog();
 
-            int listBoxHeight = 29 + ((players.Count-1)*25);
-            playersLb.Size = new System.Drawing.Size(192, listBoxHeight);
+            int listBoxHeight = 200 + ((players.Count-1)*48);
+            playersLb.Size = new System.Drawing.Size(272, listBoxHeight);
 
             UpdateListBox();
         }
@@ -81,6 +115,16 @@ namespace AWANA_Advocates_Jeopardy
         private void quitBtn_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

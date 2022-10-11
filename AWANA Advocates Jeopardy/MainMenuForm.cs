@@ -10,8 +10,8 @@ namespace AWANA_Advocates_Jeopardy
 {
     public partial class MainMenuForm : Form
     {
-        PlayMenu playMenu = new PlayMenu();
         List<LessonPlan> lessonPlans = new List<LessonPlan>();
+
         public MainMenuForm()
         {
 
@@ -26,11 +26,8 @@ namespace AWANA_Advocates_Jeopardy
         
         private void playBtn_Click(object sender, EventArgs e)
         {
+            PlayMenu playMenu = new PlayMenu("Play");
             playMenu.ShowDialog();
-        }
-
-        private void menuButtons1_Click(object sender, EventArgs e)
-        {
         }
 
         private void MainMenuForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -44,6 +41,12 @@ namespace AWANA_Advocates_Jeopardy
             AdminForm admin = new AdminForm();
             admin.ShowDialog();
             this.Show();
+        }
+
+        private void learnBtn_Click(object sender, EventArgs e)
+        {
+            PlayMenu playMenu = new PlayMenu("Learn");
+            playMenu.ShowDialog();
         }
     }
 }

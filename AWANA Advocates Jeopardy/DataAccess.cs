@@ -14,9 +14,40 @@ namespace AWANA_Advocates_Jeopardy
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.connectionValue("AdvocatesDB")))
             {
-                //var output = connection.Query<LessonPlan>("dbo.Lesson_GetAllData").ToList();
                 var output = connection.Query<LessonPlan>("dbo.Lesson_GetLessonData @LessonPlan", new { LessonPlan = lesson}).ToList();
                 return output;
+            }
+        }
+        public List<LessonPlan> GetAllLessonPlans()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.connectionValue("AdvocatesDB")))
+            {
+                var output = connection.Query<LessonPlan>("dbo.Lesson_GetAllLessons", new {}).ToList();
+                return output;
+            }
+        }
+
+        public List<string> GetLessonNames()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.connectionValue("AdvocatesDB")))
+            {
+                var output = connection.Query<string>("dbo.Lesson_GetLessonNames", new { }).ToList();
+                return output;
+            }
+        }
+        public string GetScriptureReading(string lesson)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.connectionValue("AdvocatesDB")))
+            {
+                try
+                {
+                    return connection.Query<string>("dbo.Lesson_GetScriptureReading @LessonPlan", new { LessonPlan = lesson }).ToArray()[0];
+                }
+                catch
+                {
+                    return "No Scripture";
+                }
+                
             }
         }
         public void UpdateQuestion(DataGridView dgv)
@@ -31,9 +62,11 @@ namespace AWANA_Advocates_Jeopardy
                     string lessonNameIn = (string)row.Cells[1].Value;
                     string cellIn = (string)row.Cells[2].Value;
                     string questionIn = (string)row.Cells[3].Value;
-                    lessonPlans.Add(new LessonPlan { refNum = refNumIn, lessonName = lessonNameIn, cell = cellIn, question = questionIn });
+                    string answerIn = (string)row.Cells[4].Value;
+                    string scriptureIn = (string)row.Cells[6].Value;
+                    lessonPlans.Add(new LessonPlan { refNum = refNumIn, lessonName = lessonNameIn, cell = cellIn, question = questionIn, answer = answerIn, scripture = scriptureIn });
                 }
-                connection.Execute("dbo.Lesson_Update @refNum, @lessonName, @cell, @question", lessonPlans);
+                connection.Execute("dbo.Lesson_Update @refNum, @lessonName, @cell, @question,@answer,@scripture", lessonPlans);
             }
         }
     }

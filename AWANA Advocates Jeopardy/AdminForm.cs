@@ -14,13 +14,17 @@ namespace AWANA_Advocates_Jeopardy
         {
             InitializeComponent();
             DataAccess da = new DataAccess();
-            adminDGV.DataSource = da.GetLessonPlan("Pantheism");
-            adminDGV.Columns["FullInfo"].Visible = false;
+            adminDGV.DataSource = da.GetAllLessonPlans();
             adminDGV.Columns["RefNum"].Visible = false;
 
             adminDGV.Columns["lessonName"].HeaderText = "Lesson Name";
             adminDGV.Columns["cell"].HeaderText = "Cell";
             adminDGV.Columns["question"].HeaderText = "Question";
+            adminDGV.Columns["answer"].HeaderText = "Answer";
+            adminDGV.Columns["topic"].HeaderText = "Topic";
+            adminDGV.Columns["scripture"].HeaderText = "Scripture";
+
+            lessonNameList.DataSource =da.GetLessonNames();
         }
 
         private void adminSaveBtn_Click(object sender, EventArgs e)
@@ -28,6 +32,18 @@ namespace AWANA_Advocates_Jeopardy
             DataAccess da = new DataAccess();
             da.UpdateQuestion(adminDGV);
             this.Hide();
+        }
+
+        private void adminCancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lessonNameList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataAccess da = new DataAccess();
+            adminDGV.DataSource = da.GetLessonPlan(lessonNameList.SelectedItem.ToString());
+
         }
     }
 }

@@ -11,25 +11,28 @@ namespace AWANA_Advocates_Jeopardy
     public partial class QuestionForm : Form
     {
         string question;
+        string answer;
         int points;
         List<Player> players;
-        public QuestionForm(string question, int points, ref List<Player> players)
+        public QuestionForm(string question, string answer, int points, ref List<Player> players)
         {
             this.question = question;
             this.points = points;
             this.players = players;
+            this.answer = answer;
             InitializeComponent();
         }
 
         private void QuestionForm_Load(object sender, EventArgs e)
         {
             pointLbl.Text = points.ToString();
-            questionLbl.Text = question;
+            questionLbl.ForeColor = Color.White;
+            questionLbl.Text = "Question: " + question;
             int i = players.Count;
             foreach (Control c in Controls)
             {
                 Button b = c as Button;
-                if (b != null && i > 0)
+                if (b != null && i > 0 && b.Name != "answerBtn")
                 {
                     b.Visible = true;
                     b.Text = players[i - 1].playerName;
@@ -57,5 +60,9 @@ namespace AWANA_Advocates_Jeopardy
         private void player6Btn_Click(object sender, EventArgs e) { AddPointsToPlayer(player6Btn); }
         private void player7Btn_Click(object sender, EventArgs e) { AddPointsToPlayer(player7Btn); }
         private void player8Btn_Click(object sender, EventArgs e) { AddPointsToPlayer(player8Btn); }
+        private void answerBtn_Click(object sender, EventArgs e)
+        {
+            questionLbl.Text = "Answer: " + answer;
+        }
     }
 }

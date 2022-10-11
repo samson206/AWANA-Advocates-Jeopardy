@@ -14,15 +14,15 @@ namespace AWANA_Advocates_Jeopardy
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        public static Dictionary<string,string> ConvertListToMap(List<LessonPlan> list)
+        public static Dictionary<string,string[]> ConvertListToMap(List<LessonPlan> list)
         {
-            Dictionary<string,string> returnMap = new Dictionary<string,string>();
+            Dictionary<string,string[]> returnMap = new Dictionary<string,string[]>();
 
             foreach(LessonPlan lesson in list){
-                returnMap.Add(lesson.cell, lesson.question);
+                returnMap.Add(lesson.cell, new string[] { lesson.question, lesson.answer});
             }
 
-            return returnMap;
+            return returnMap;   
 
         }
     }
